@@ -33,6 +33,8 @@ enum preonic_keycodes {
     RAISE,
     LOWER,
     KITTY,
+    ACUTE,
+    TILDE
     // ACNT,
     // TLDE,
     // UMLT,
@@ -45,20 +47,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB , KC_QUOT, KC_COMM, KC_DOT , KC_P   , KC_Y   , KC_F   , KC_G   , KC_C   , KC_R   , KC_L   , KC_SLSH,
         KC_GRV , KC_A   , KC_O   , KC_E   , KC_U   , KC_I   , KC_D   , KC_H   , KC_T   , KC_N   , KC_S   , KC_ENT ,
         KC_LSFT, KC_SCLN, KC_Q   , KC_J   , KC_K   , KC_X   , KC_B   , KC_M   , KC_W   , KC_V   , KC_Z   , KC_MINS,
-        KITTY  , KC_LCTL, KC_LOPT, KC_LCMD, KC_SPC , RAISE  , LOWER  , KC_SPC , KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT
+        KITTY  , KC_LCTL, KC_LOPT, KC_LCMD, RAISE  , KC_SPC , KC_SPC , LOWER  , KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT
     ),
 
     [_QWERTY] = LAYOUT_preonic_grid(
         KC_ESC , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSPC,
-        KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS,
+        KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_LBRC,
         KC_GRV , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_ENT ,
         KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_QUOT,
-        KITTY  , KC_LCTL, KC_LOPT, KC_LCMD, KC_SPC , RAISE  , LOWER  , KC_SPC , KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT
+        KITTY  , KC_LCTL, KC_LOPT, KC_LCMD, RAISE  , KC_SPC , KC_SPC , LOWER  , KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT
     ),
 
     [_RAISE] = LAYOUT_preonic_grid(
-        _______, KC_MPLY, KC_MPRV, KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LBRC, KC_RBRC, _______,
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SLSH, KC_EQL , KC_BSLS,
+        _______, KC_MPLY, KC_MPRV, KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, KC_EQL , _______,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LBRC, KC_RBRC, KC_BSLS,
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL ,
         _______, _______, _______, _______, _______, _______, _______, _______, KC_VOLD, KC_BRID, KC_BRIU, KC_VOLU
@@ -67,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LOWER] = LAYOUT_preonic_grid(
         KC_F12 , KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 ,
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        _______, XXXXXXX, XXXXXXX,   ACUTE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   ACUTE,   TILDE, XXXXXXX, _______,
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R
     ),
@@ -78,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         QK_LOCK, DM_PLY1, DM_PLY2, XXXXXXX, CK_TOGG, XXXXXXX, MI_TOGG, DVORAK , XXXXXXX, XXXXXXX, XXXXXXX, KC_ENT , // Must match
         _______, XXXXXXX, XXXXXXX, XXXXXXX, AU_TOGG, XXXXXXX, XXXXXXX, QWERTY , XXXXXXX, XXXXXXX, XXXXXXX, _______,
         QK_BOOT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
-    ),
+    )
     // [_TRANS] = LAYOUT_preonic_grid(
     //     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     //     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
@@ -126,6 +128,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KITTY:
             if (record->event.pressed) {
                 // SEND_STRING(":3");
+                return false;
+            }
+        case ACUTE:
+            if (record->event.pressed) {
+                // Send a dead acute
+
+                return false;
+            }
+        case TILDE:
+            if (record->event.pressed) {
                 return false;
             }
         // case ACNT:
